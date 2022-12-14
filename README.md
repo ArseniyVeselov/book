@@ -1,4 +1,5 @@
-# bookfio_list,phone_list = [],[]
+# book
+fio_list,phone_list = [],[]
 
 def fio(f_i_o):
     return [i for i in f_i_o if i.isalpha()]
