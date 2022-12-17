@@ -1,33 +1,39 @@
 def adding():
-    def fio_list():                # добавление в список ФИО
+    def fio_list():  # добавление в список ФИО
         name_l.append(input('Введи ФИО: ').title().strip())
     fio_list()
 
-    def phone_list():             # добавление в список номеров
+
+    def phone_list():  # добавление в список номеров
         phone = input('Введи номер: ').strip()
-        n=[i for i in phone if i in '0123456789']
+        n = [i for i in phone if i in '0123456789']
         phone_l.append(''.join(n))
     phone_list()
+    print('Запись добавлена')
+    print()
 
-def removal():               # удаление записи
+
+def removal():  # удаление записи
     records()
     number = input('Введи номер записи для удаления ')
-    #if number == '1' or number == '2':
-    print('Запись',name_l[int(number)-1],phone_l[int(number)-1], 'удалена')
+    print('Запись', name_l[int(number) - 1], phone_l[int(number) - 1], 'удалена')
     del name_l[int(number) - 1]
     del phone_l[int(number) - 1]
-    #records()  
-    
-def records():                      # отображение списка
-     counter = 0
-     for i in range(len(name_l)):
-          counter += 1
-          print(counter, 'ФИО:', name_l[i], 'Телефон:', phone_l[i])
-    
-def greetings(): # приветствие
-    print('Выбери действие:','Добавление записи -> 1','Удаление записи -> 2', 'Показать список -> 3', 'Закончить работу программы -> 4',' ',sep='\n')
+    print()
+
+
+def records():  # отображение списка
+    counter = 0
+    for i in range(len(name_l)):
+        counter += 1
+        print(counter, 'ФИО:', name_l[i], 'Телефон:', phone_l[i])
+    print()
+
+def greetings():  # приветствие
+    print('Выбери действие:', 'Добавление записи -> 1', 'Удаление записи -> 2', 'Показать список -> 3',
+          'Закончить работу программы -> 4', ' ', sep='\n')
     action = input()
-    while action!= '4':
+    while action != '4':
         if action == '1':
             adding()
             greetings()
@@ -37,12 +43,9 @@ def greetings(): # приветствие
         elif action == '3':
             records()
             greetings()
-        elif action == '4':
-            exit()
-               
-name_l, phone_l = ['Поняев Михаил Сергеевич'],['89057163112']
-greetings()
 
+name_l, phone_l = ['Поняев Михаил Сергеевич'], ['89057163112']
+greetings()
 
 
 
