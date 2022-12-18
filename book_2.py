@@ -1,17 +1,10 @@
-def adding():
-    def fio_list():  # добавление в список ФИО
-        name_l.append(input('Введи ФИО: ').title().strip())
-    fio_list()
-
-
-    def phone_list():  # добавление в список номеров
-        phone = input('Введи номер: ').strip()
-        n = [i for i in phone if i in '0123456789']
-        phone_l.append(''.join(n))
-    phone_list()
+def adding(): # добавление записи
+    name_l.append(input('Введи ФИО: ').title().strip())
+    phone = input('Введи номер: ').strip()
+    n = [i for i in phone if i in '0123456789']
+    phone_l.append(''.join(n))
     print('Запись добавлена')
     print()
-
 
 def removal():  # удаление записи
     records()
@@ -28,24 +21,29 @@ def records():  # отображение списка
         counter += 1
         print(counter, 'ФИО:', name_l[i], 'Телефон:', phone_l[i])
     print()
-
-def greetings():  # приветствие
+def hat():
     print('Выбери действие:', 'Добавление записи -> 1', 'Удаление записи -> 2', 'Показать список -> 3',
           'Закончить работу программы -> 4', ' ', sep='\n')
-    action = input()
-    while action != '4':
-        if action == '1':
+
+def greetings():  # приветствие
+    hat()
+    action = int(input())
+    while action != 4:
+        if action == 1:
             adding()
-            greetings()
-        elif action == '2':
+            hat()
+        if action == 2:
             removal()
-            greetings()
-        elif action == '3':
+            hat()
+        if action == 3:
             records()
-            greetings()
+            hat()
+        action = int(input())
+
 
 name_l, phone_l = ['Поняев Михаил Сергеевич'], ['89057163112']
 greetings()
+
 
 
 
